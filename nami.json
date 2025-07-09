@@ -1,0 +1,73 @@
+{
+    "@version": "1.0",
+    "package": {
+        "@version": "3.0",
+        "@xml:lang": "en",
+        "@xmlns": "http://www.idpf.org/2007/opf",
+        "@unique-identifier": "pub-id",
+        "metadata": {
+            "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+            "dc:identifier": [
+                {
+                    "#text": "urn:uuid:B9B412F2-CAAD-4A44-B91F-A375068478A0",
+                    "@id": "pub-id"
+                },
+                {
+                    "#text": "urn:isbn:9780741014559",
+                    "@id": "isbn13"
+                },
+                {
+                    "#text": "0-7410-1455-6",
+                    "@id": "isbn10"
+                }
+            ],
+            "dc:language": "en",
+            "dc:title": "As You Like It",
+            "dc:creator": {
+                "#text": "William Shakespeare",
+                "@id": "creator"
+            },
+            "meta": [
+                {
+                    "#text": "2000-03-24T00:00:00Z",
+                    "@property": "dcterms:modified"
+                },
+                {
+                    "#text": "9999-01-01",
+                    "@property": "dcterms:dateCopyrighted"
+                }
+            ],
+            "dc:publisher": "Project Gutenberg",
+            "dc:date": "2000-03-24",
+            "link": {
+                "@rel": "xml-signature",
+                "@href": "../META-INF/signatures.xml#AsYouLikeItSignature"
+            }
+        },
+        "manifest": {
+            "item": [
+                {
+                    "@id": "r4915",
+                    "@href": "book.html",
+                    "@media-type": "application/xhtml+xml"
+                },
+                {
+                    "@id": "r7184",
+                    "@href": "images/cover.png",
+                    "@media-type": "image/png"
+                },
+                {
+                    "@id": "nav",
+                    "@href": "nav.html",
+                    "@media-type": "application/xhtml+xml",
+                    "@properties": "nav"
+                }
+            ]
+        },
+        "spine": {
+            "itemref": {
+                "@idref": "r4915"
+            }
+        }
+    }
+}

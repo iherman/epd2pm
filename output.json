@@ -1,0 +1,7 @@
+{
+    "@context": [
+        "https://schema.org",
+        "https://www.w3.org/ns/pub-context"
+    ],
+    "id": "pkg-spine-duplicate-item-hyperlink"
+}

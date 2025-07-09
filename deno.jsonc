@@ -1,0 +1,33 @@
+{
+    "name": "@iherman/r2epub",
+    "description": "Typescript based conversion of Respec generated HTML files into EPUB 3",
+    "version": "2.0.2",
+    "date": "2025-07-02",
+    "homepage": "https://github.com/iherman/epd2pm",
+    "nodeModulesDir": "none",
+    "compilerOptions": {
+        "lib": ["dom", "deno.ns"]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iherman/epd2pm"
+    },
+    "bugs": {
+        "url": "https://github.com/iherman/epd2pm/issues"
+    },
+    "lint": {
+        "include": ["./lib", "./lib/clib"]
+    },
+    "exports": "./main.ts",
+    "author": "Ivan Herman <ivan@w3.org> (https://www.w3.org/People/Ivan/)",
+    "license": "W3C-20150513",
+    "exclude": [
+        ".npm",
+        "Attic/*",
+        "testing/examples/*",
+        "docs/*",
+        ".nojekyll",
+        ".vscode",
+        "notes.md"
+    ]
+}
