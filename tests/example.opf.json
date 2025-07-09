@@ -1,0 +1,87 @@
+{
+    "package": {
+        "@xmlns": "http://www.idpf.org/2007/opf",
+        "@xmlns:epub": "http://www.idpf.org/2007/ops",
+        "@version": "3.0",
+        "@xml:lang": "en",
+        "@unique-identifier": "pub-id",
+        "metadata": {
+            "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+            "dc:coverage": {
+                "#text": "Package Documents",
+                "@id": "coverage"
+            },
+            "meta": [
+                {
+                    "#text": "3.3",
+                    "@refines": "#coverage",
+                    "@property": "schema:version"
+                },
+                {
+                    "#text": "https://www.w3.org/TR/epub-rs/#confreq-rs-pkg-duplicate-item-hyperlink",
+                    "@property": "dcterms:isReferencedBy"
+                },
+                {
+                    "#text": "2021-11-18T00:00:00Z",
+                    "@property": "dcterms:modified"
+                }
+            ],
+            "dc:creator": "Dan Lazin",
+            "dc:date": "2021-11-18",
+            "dc:description": "The spine contains several references to the same content document. The reading system must move to the position of the\n      first duplicate in the reading order when following a hyperlink.",
+            "dc:identifier": {
+                "#text": "pkg-spine-duplicate-item-hyperlink",
+                "@id": "pub-id"
+            },
+            "dc:language": "en",
+            "dc:publisher": "W3C",
+            "dc:title": "pkg-spine-duplicate-item-hyperlink",
+            "link": [
+                {
+                    "@rel": "dcterms:rights",
+                    "@href": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"
+                },
+                {
+                    "@rel": "dcterms:rightsHolder",
+                    "@href": "https://www.w3.org"
+                }
+            ]
+        },
+        "manifest": {
+            "item": [
+                {
+                    "@id": "content_001",
+                    "@href": "content_001.xhtml",
+                    "@media-type": "application/xhtml+xml"
+                },
+                {
+                    "@id": "content_002",
+                    "@href": "content_002.xhtml",
+                    "@media-type": "application/xhtml+xml"
+                },
+                {
+                    "@id": "nav",
+                    "@properties": "nav",
+                    "@href": "nav.xhtml",
+                    "@media-type": "application/xhtml+xml"
+                }
+            ]
+        },
+        "spine": {
+            "itemref": [
+                {
+                    "@idref": "content_001"
+                },
+                {
+                    "@idref": "content_002"
+                },
+                {
+                    "@idref": "content_002"
+                },
+                {
+                    "@idref": "content_002"
+                }
+            ]
+        }
+    }
+}

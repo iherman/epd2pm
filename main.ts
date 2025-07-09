@@ -8,8 +8,8 @@ import { parseArgs }      from "jsr:@std/cli/parse-args";
 async function main(): Promise<void> {
     const args = parseArgs(Deno.args, {
         string: ["output", "o"],
-        boolean: ["help", "version"],
-        alias: { o: "output", h: "help", v: "version" },
+        boolean: ["help", "version", "trace"],
+        alias: { o: "output", h: "help", v: "version", t: "trace" },
     });
 
     if (args.help) {
@@ -50,7 +50,7 @@ Options:
         })();
 
         const opf: any = await getOPF(file);
-        const pm: Json = convert(opf);
+        const pm: Json = convert(opf, args.trace || false);
 
         const output = JSON.stringify(pm, null, 4);
         if (args.output) {

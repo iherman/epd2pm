@@ -29,5 +29,11 @@
         ".nojekyll",
         ".vscode",
         "notes.md"
-    ]
+    ],
+    "tasks": {
+        "pkg"  : "deno -A main.ts -t --output lo.json tests/pkgArray.opf > tests/pkgArray.opf.json; /bin/rm lo.json",
+        "tpkg" : "deno -A main.ts tests/pkgArray.opf",
+        "tex"  : "deno -A main.ts tests/example.opf",
+        "tpub" : "deno -A main.ts tests/example.epub"
+    }
 }

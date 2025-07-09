@@ -19,9 +19,22 @@
       </dc:title>
 
       <dc:creator
-          id="creator">
+          id="crea">
          William Shakespeare
       </dc:creator>
+      <meta refines="#crea" property="role">
+         author
+      </meta>
+
+     <dc:creator
+          id="trans">
+         Arany János
+      </dc:creator>
+      <meta refines="#trans" property="role">
+         translator
+      </meta>
+
+      <dc:creator>Dummy Joe</dc:creator>
 
       <meta
           property="dcterms:modified">
