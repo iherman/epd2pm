@@ -10,25 +10,25 @@
 
       <dc:identifier id="pub-id">urn:uuid:B9B412F2-CAAD-4A44-B91F-A375068478A0</dc:identifier>
 
-      <dc:language>
-         en
-      </dc:language>
+      <dc:description xml:lang="en-us">This is an example for the object</dc:description>
+      <dc:description xml:lang="hu">Ez egy leírás magyarul...</dc:description>
 
-      <dc:title>
-         As You Like It
-      </dc:title>
+      <dc:language>en</dc:language>
 
-      <dc:creator
-          id="crea">
-         William Shakespeare
-      </dc:creator>
+      <dc:title xml:lang="en-GB">As You Like It</dc:title>
+
+      <dc:creator id="crea">William Shakespeare</dc:creator>
       <meta refines="#crea" property="role" scheme="schema:">author</meta>
 
-     <dc:contributor id="trans">Arany János</dc:contributor>
+      <dc:contributor id="trans" xml:lang="hu">Arany János</dc:contributor>
       <meta refines="#trans" property="role" scheme="marc:relators">trl</meta>
 
       <dc:contributor id="dummy">Dummy Joe</dc:contributor>
       <meta refines="#dummy" property="role" scheme="marc:relators">ill</meta>
+
+      <dc:contributor>Someone Else</dc:contributor>
+
+      <dc:contributor xml:lang="zh-HANS">郝易文</dc:contributor>
 
       <meta
           property="dcterms:modified">

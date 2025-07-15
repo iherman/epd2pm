@@ -21,8 +21,21 @@
                     "@id": "isbn10"
                 }
             ],
+            "dc:description": [
+                {
+                    "#text": "This is an example for the object",
+                    "@xml:lang": "en-us"
+                },
+                {
+                    "#text": "Ez egy leírás magyarul...",
+                    "@xml:lang": "hu"
+                }
+            ],
             "dc:language": "en",
-            "dc:title": "As You Like It",
+            "dc:title": {
+                "#text": "As You Like It",
+                "@xml:lang": "en-GB"
+            },
             "dc:creator": {
                 "#text": "William Shakespeare",
                 "@id": "crea"
@@ -58,11 +71,17 @@
             "dc:contributor": [
                 {
                     "#text": "Arany János",
-                    "@id": "trans"
+                    "@id": "trans",
+                    "@xml:lang": "hu"
                 },
                 {
                     "#text": "Dummy Joe",
                     "@id": "dummy"
+                },
+                "Someone Else",
+                {
+                    "#text": "郝易文",
+                    "@xml:lang": "zh-HANS"
                 }
             ],
             "dc:publisher": "Project Gutenberg",
@@ -101,3 +120,8 @@
         }
     }
 }
+{ value: "William Shakespeare" }
+{ value: "Arany János", language: "hu" }
+{ value: "Dummy Joe" }
+Someone Else
+{ value: "郝易文", language: "zh-HANS" }

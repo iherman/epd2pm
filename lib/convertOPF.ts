@@ -1,5 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 
+// TODO: - use the xml:lang and possibly the "dir" property for the title, and also the contributor
+
 const propertyMappings: Record<string,string> = {
     "cover-image"      : "cover",
     "mathml"           : "",
@@ -50,6 +52,26 @@ interface JsonObject {
 export type Json = JsonPrimitive | JsonObject | Json[];
 
 /**
+ * 
+ */
+function localizableString(val: any): Json {
+    if (typeof val === "string") {
+        return val
+    } else {
+        const output = {
+            value: val["#text"]
+        }
+        if ("@xml:lang" in val) {
+            (output as JsonObject)["language"] = val["@xml:lang"];
+        }
+        if ("@dir" in val) {
+            (output as JsonObject)["direction"] = val["@dir"];
+        }
+        return output;
+    }
+}
+
+/**
  * Make sure that the result is always an array (for an easier handling)
  * 
  * @param input 
@@ -86,10 +108,27 @@ function addValue(obj: any, name: string, value: any) {
  * @param pm 
  * @param pmName 
  */
-function copySingleValue(opf: any, opfName: string, pm: Json, pmName: string) {
+function copySingleValue(opf: any, opfName: string, pm: Json, pmName: string, localizable = false) {
     const values = toArray(opf.package.metadata[opfName]);
     if (values.length !== 0) {
-        (pm as JsonObject)[pmName] = values[0];
+        (pm as JsonObject)[pmName] = localizable ? localizableString(values[0]) : values[0];
+    }
+}
+
+/**
+ * Copy multiple opt values, if they exists, to the PM
+ * 
+ * @param opf 
+ * @param opfName 
+ * @param pm 
+ * @param pmName 
+ */
+function copyMultipleValues(opf: any, opfName: string, pm: Json, pmName: string, localizable = false) {
+    const values = toArray(opf.package.metadata[opfName]);
+    if (values.length !== 0) {
+        for (const value of values) {
+            (pm as JsonObject)[pmName] = localizable ? localizableString(value) : value;
+        }
     }
 }
 
@@ -151,7 +190,9 @@ export function convert(opf: any, trace = false): Json {
 
     {
         // Simple copy of values of some core metadata
-        copySingleValue(opf, "dc:title", output, "name");
+        copySingleValue(opf, "dc:title", output, "name", true); // Value may be localizable!
+        // Actually, this is not defined in the official document for PM
+        copyMultipleValues(opf, "dc:description", output, "description", true); // Value may be localizable!
         copySingleValue(opf, "dc:date", output, "datePublished");
         copySingleMetaValue(metas, "dcterms:modified", output, "dateModified");
         copySingleValue(opf, "dc:language", output, "inLanguage");
@@ -216,10 +257,27 @@ export function convert(opf: any, trace = false): Json {
         // Add the creators to the output
         for (const role in roles) {
             const persons = roles[role].map((person: any): any => {
-                return {
-                    type : "Person",
-                    name: typeof person === "string" ? person : person["#text"]
-                }
+                const locString = localizableString(person);
+                console.log(locString);
+                const output = ((locString: Json): Json => {
+                    if (typeof locString === "string") {
+                        return locString;
+                    } else {
+                        const locStr = locString as JsonObject;
+                        const locPerson: Json = {
+                            type: "Person",
+                            name: locStr["value"],
+                        }
+                        if ("language" in locStr) {
+                            locPerson["inLanguage"] = locStr["language"]
+                        }
+                        if ("direction" in locStr) {
+                            locPerson["inDirection"] = locStr["direction"];
+                        }
+                        return locPerson;
+                    }
+                })(localizableString(person));
+                return output;
             });
             output[role] = persons.length === 1 ? persons[0] : persons ;
         }
