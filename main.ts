@@ -1,7 +1,6 @@
 
-import { Json }           from "./lib/common.ts";
 import { getOPF }         from "./lib/getOPF.ts";
-import { convert }        from "./lib/convertOPF.ts";
+import { convert, Json }  from "./lib/convertOPF.ts";
 import { parseArgs }      from "jsr:@std/cli/parse-args";
 
 

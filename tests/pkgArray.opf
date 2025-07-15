@@ -22,19 +22,13 @@
           id="crea">
          William Shakespeare
       </dc:creator>
-      <meta refines="#crea" property="role">
-         author
-      </meta>
+      <meta refines="#crea" property="role" scheme="schema:">author</meta>
 
-     <dc:creator
-          id="trans">
-         Arany János
-      </dc:creator>
-      <meta refines="#trans" property="role">
-         translator
-      </meta>
+     <dc:contributor id="trans">Arany János</dc:contributor>
+      <meta refines="#trans" property="role" scheme="marc:relators">trl</meta>
 
-      <dc:creator>Dummy Joe</dc:creator>
+      <dc:contributor id="dummy">Dummy Joe</dc:contributor>
+      <meta refines="#dummy" property="role" scheme="marc:relators">ill</meta>
 
       <meta
           property="dcterms:modified">
@@ -51,7 +45,7 @@
 
       <meta
           property="dcterms:dateCopyrighted">
-         9999-01-01
+         1999-01-01
       </meta>
 
       <dc:identifier
@@ -75,6 +69,7 @@
           media-type="application/xhtml+xml"/>
       <item id="r7184"
           href="images/cover.png"
+          properties="cover-image"
           media-type="image/png"/>
       <item id="nav"
           href="nav.html"
@@ -82,7 +77,7 @@
           properties="nav"/>
    </manifest>
 
-   <spine>
+   <spine page-progression-direction="ltr">
       <itemref
           idref="r4915"/>
    </spine>

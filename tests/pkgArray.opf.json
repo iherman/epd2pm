@@ -23,35 +23,46 @@
             ],
             "dc:language": "en",
             "dc:title": "As You Like It",
-            "dc:creator": [
-                {
-                    "#text": "William Shakespeare",
-                    "@id": "crea"
-                },
-                {
-                    "#text": "Arany János",
-                    "@id": "trans"
-                },
-                "Dummy Joe"
-            ],
+            "dc:creator": {
+                "#text": "William Shakespeare",
+                "@id": "crea"
+            },
             "meta": [
                 {
                     "#text": "author",
                     "@refines": "#crea",
-                    "@property": "role"
+                    "@property": "role",
+                    "@scheme": "schema:"
                 },
                 {
-                    "#text": "translator",
+                    "#text": "trl",
                     "@refines": "#trans",
-                    "@property": "role"
+                    "@property": "role",
+                    "@scheme": "marc:relators"
+                },
+                {
+                    "#text": "ill",
+                    "@refines": "#dummy",
+                    "@property": "role",
+                    "@scheme": "marc:relators"
                 },
                 {
                     "#text": "2000-03-24T00:00:00Z",
                     "@property": "dcterms:modified"
                 },
                 {
-                    "#text": "9999-01-01",
+                    "#text": "1999-01-01",
                     "@property": "dcterms:dateCopyrighted"
+                }
+            ],
+            "dc:contributor": [
+                {
+                    "#text": "Arany János",
+                    "@id": "trans"
+                },
+                {
+                    "#text": "Dummy Joe",
+                    "@id": "dummy"
                 }
             ],
             "dc:publisher": "Project Gutenberg",
@@ -71,6 +82,7 @@
                 {
                     "@id": "r7184",
                     "@href": "images/cover.png",
+                    "@properties": "cover-image",
                     "@media-type": "image/png"
                 },
                 {
@@ -82,30 +94,10 @@
             ]
         },
         "spine": {
+            "@page-progression-direction": "ltr",
             "itemref": {
                 "@idref": "r4915"
             }
         }
     }
-}
-{ "#text": "William Shakespeare", "@id": "crea" }
-{ "#text": "author", "@refines": "#crea", "@property": "role" }
-{ "#text": "translator", "@refines": "#trans", "@property": "role" }
-{ "#text": "Arany János", "@id": "trans" }
-{ "#text": "author", "@refines": "#crea", "@property": "role" }
-{ "#text": "translator", "@refines": "#trans", "@property": "role" }
-{
-    "author": [
-        {
-            "#text": "William Shakespeare",
-            "@id": "crea"
-        },
-        "Dummy Joe"
-    ],
-    "translator": [
-        {
-            "#text": "Arany János",
-            "@id": "trans"
-        }
-    ]
 }
